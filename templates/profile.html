@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Посты пользователя {{ author.get_full_name }}{% endblock %}
+{% block header %}Посты пользователя {{ author.get_full_name }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-3 mb-3 mt-1">
+            {% include 'users/author_card.html' %}
+            {% if author != request.user and request.user.is_authenticated %}
+                <li class="list-group-item">
+
+                    {% if is_follow %}
+                        <a class="btn btn-lg btn-secondary"
+                           href="{% url 'profile_unfollow' username=author.username %}"
+                           role="button">
+                            Отписаться
+                        </a>
+                    {% else %}
+                        <a class="btn btn-lg btn-success"
+                           href="{% url 'profile_follow' username=author.username %}"
+                           role="button">
+                            Подписаться
+                        </a>
+                    {% endif %}
+
+                </li>
+            {% endif %}
+        </div>
+
+        <div class="col-md-9">
+            {% for post in page %}
+                {% include "posts/post_item.html" with post=post %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {% if page.has_other_pages %}
+        {% include "paginator.html" with items=page paginator=paginator %}
+    {% endif %}
+
+{% endblock %}

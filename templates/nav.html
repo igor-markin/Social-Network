@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="{% url 'index' %}"><span style="color:red">Игорь</span> Маркин</a>
+    <nav class="my-2 my-md-0 mr-md-3">
+        {% if user.is_authenticated %}
+        <a class="p-2 btn btn-success" href="{% url 'new_post' %}">✏ Новая запись</a>
+        <a class="p-2 btn btn-link" href="{% url 'profile' username=user.username %}">🤵 Мой профиль ({{ user.username }})</a>
+        <a class="p-2 btn btn-link" href="{% url 'password_change' %}">🔒 Изменить пароль</a>
+        <a class="p-2 btn btn-link" href="{% url 'logout' %}">👋 Выйти</a>
+        {% else %}
+        <a class="p-2 btn btn-link" href="{% url 'login' %}">🚪 Войти</a> |
+        <a class="p-2 btn btn-link" href="{% url 'signup' %}">📋 Регистрация</a>
+        {% endif %}
+    </nav>
+</nav>

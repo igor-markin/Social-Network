@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+    <div class="row">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link {% if index %}active{% endif %}"
+                   href="{% url 'index' %}">
+                    👥 Все авторы
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if follow %}active{% endif %}"
+                   href="{% url 'follow_index' %}">
+                    ⭐ Избранные авторы
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endif %}

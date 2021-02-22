@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+    <main role="main" class="container">
+        <div class="row">
+
+            <div class="col-md-3 mb-3 mt-1">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="h3">
+                                    Технологии
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">
+                                    <p>Несколько слов о том, какие технологии я
+                                        использовал при создании проекта.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="card-body">
+                    <div class="card-text">
+                        <h2>Вот, что применялось в этом проекте</h2>
+                        <ul>
+                            <li>
+                                Python
+                            </li>
+                            <li>
+                                Django Framework
+                            </li>
+                            <li>
+                                SQLite
+                            </li>
+                            <li>
+                                Скоро: Django Rest API и PostgreSQL
+                            </li>
+                        </ul>
+
+                        <h2>Самостоятельные проекты</h2>
+                        <ul>
+                            <li>
+                                Веб-приложение на Django (готово)
+                            </li>
+                            <li>
+                                База данных отзывов на фильмы (в разработке)
+                            </li>
+                            <li>
+                                Телеграм-бот (в разработке)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}

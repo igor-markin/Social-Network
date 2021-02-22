@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Посты пользователя {{ author.get_full_name }}{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-3 mb-3 mt-1">
+            {% include 'users/author_card.html' %}
+        </div>
+
+        <div class="col-md-9">
+            {% include "posts/post_item.html" with post=post %}
+            {% include "posts/comments.html" with comments=comments %}
+        </div>
+
+    </div>
+
+    {% include "paginator.html" %}
+
+{% endblock %}
